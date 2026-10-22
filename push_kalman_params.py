@@ -30,16 +30,23 @@ def find_git() -> str:
     if git_on_path:
         return git_on_path
 
-    runtime_root = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData/Local"))
-    bundled_git = (
-        runtime_root
-        / ".cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe"
-    )
-    if bundled_git.is_file():
-        return str(bundled_git)
+    home = Path.home()
+    candidates = [
+        home
+        / ".cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe",
+        Path(os.environ.get("LOCALAPPDATA", home / "AppData/Local"))
+        / "Programs/Git/cmd/git.exe",
+        Path(os.environ.get("ProgramFiles", "C:/Program Files"))
+        / "Git/cmd/git.exe",
+        Path(os.environ.get("ProgramFiles(x86)", "C:/Program Files (x86)"))
+        / "Git/cmd/git.exe",
+    ]
+    for candidate in candidates:
+        if candidate.is_file():
+            return str(candidate)
     raise FileNotFoundError(
-        "Git was not found on PATH or in the Codex runtime. Install Git for Windows "
-        "or add git.exe to PATH."
+        "Git was not found. Install Git for Windows, add git.exe to PATH, or set "
+        "GIT_EXE to the full path of git.exe."
     )
 
 
@@ -102,7 +109,8 @@ def run_git(repo_dir: Path, *args: str) -> str:
         text=True,
         capture_output=True,
     )
-    return completed.stdout.strip()
+    # Preserve leading spaces in `git status --porcelain` records.
+    return completed.stdout.rstrip("\r\n")
 
 
 def main() -> None:

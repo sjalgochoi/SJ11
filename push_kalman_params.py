@@ -155,7 +155,7 @@ def main() -> None:
     if not run_git(repo_dir, "status", "--porcelain"):
         print("The JSON files are already up to date; nothing to commit or push.")
         return
-    run_git(repo_dir, "commit", "Update Kalman parameters for index 0")
+    run_git(repo_dir, "commit", "-m", "Update Kalman parameters for index 0")
     run_git(repo_dir, "push", "origin", "main")
     print(
         f"Pushed index {PARAMETER_INDEX} parameters for "

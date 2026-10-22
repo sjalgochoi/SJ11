@@ -152,11 +152,11 @@ def main() -> None:
     (repo_dir / "kalman_param.jason").write_text(serialized, encoding="utf-8")
 
     run_git(repo_dir, "add", "parameters_0.json", "kalman_param.jason", Path(__file__).name)
-    '''
+ 
     if not run_git(repo_dir, "status", "--porcelain"):
         print("The JSON files are already up to date; nothing to commit or push.")
         return
-    '''
+
     run_git(repo_dir, "commit", "-m", "Update Kalman parameters for index 0")
     run_git(repo_dir, "push", "origin", "main")
     print(

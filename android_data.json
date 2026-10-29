@@ -1,0 +1,29 @@
+[
+  {
+    "date": "45817",
+    "OPEN:TIGER NASDAQ 100": 131190,
+    "OPEN:KODEX200": 38380,
+    "OPEN:KODEX200 I": 3950,
+    "OPEN:TIGER200": 38285,
+    "OPEN:TIGER200 I": 4415,
+    "OPEN:KOSEF DOLLAR F": 15425,
+    "OPEN:DOLLAR F I": 8610,
+    "OPEN:TIGER SNP": 63870,
+    "OPEN:TIGER WTI": 3990,
+    "OPEN:KODEX COPPER": 7975,
+    "OPEN:KODEX GOLD": 19700,
+    "OPEN:K200": 381.25,
+    "OPEN:KOSPI": 2841.56,
+    "OPEN:KOSDAQ": 759.27,
+    "CLOSE:NSADAQ": 21547.43,
+    "CLOSE:K200": 376.54,
+    "CLOSE:DOLLAR INDEX": 1495.35,
+    "CLOSE:S&P 500 Futures Index(ER)": 493.5,
+    "CLOSE:S&P GSCI Crude Oil Enhanced Index (ER)": 472.56,
+    "CLOSE:S&P GSCI North American Copper Index(TR)": 704.05,
+    "CLOSE:S&P GSCI Gold Index(TR)": 1657.2,
+    "CLOSE:KOSPI": 2812.05,
+    "CLOSE:WORLD": 3889.6733,
+    "CLOSE:EM": 1182.676944
+  }
+]
